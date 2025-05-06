@@ -1,0 +1,71 @@
+/* src/pages/Resources.css */
+
+.resources-container {
+    background-color: #e3f2fd; /* Light blue background */
+    color: #0d47a1; /* Dark blue text */
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 30px auto;
+  }
+  
+  .resources-container h1 {
+    font-size: 2.5rem;
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .resources-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .resources-list {
+    background-color: #bbdefb; /* Light blue card for resources list */
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .resources-list h2 {
+    color: #1565c0; /* Medium blue for subheading */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .resources-list p {
+    font-size: 1.1rem;
+    color: #0d47a1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .resources-container a {
+    color: #1e88e5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .resources-container a:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+  }
+  
+  .resources-container .btn {
+    background-color: #0d47a1; /* Dark blue for buttons */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 1.5rem;
+  }
+  
+  .resources-container .btn:hover {
+    background-color: #1565c0; /* Slightly lighter blue on hover */
+  }
+  

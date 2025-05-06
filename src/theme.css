@@ -1,0 +1,38 @@
+:root {
+  --primary-color: #2a2d43;
+  --accent-color: #fbc531;
+  --bg-color: #1e1f2b;
+  --text-color: #e0e0e0;
+  --card-bg: #2b2e4a;
+  --border-radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+.btn {
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+input, select, textarea {
+  background: #333;
+  border: none;
+  border-radius: var(--border-radius);
+  color: white;
+  padding: 0.75rem;
+}

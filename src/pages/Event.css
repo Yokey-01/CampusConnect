@@ -1,0 +1,81 @@
+/* src/pages/Events.css */
+
+.events-container {
+    background-color: #e3f2fd; /* Light blue background */
+    color: #0d47a1; /* Dark blue text */
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 30px auto;
+  }
+  
+  .events-container h1 {
+    font-size: 2.5rem;
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .events-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .events-list {
+    background-color: #bbdefb; /* Light blue card for events list */
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .events-list h2 {
+    color: #1565c0; /* Medium blue for subheading */
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .events-list ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .events-list li {
+    font-size: 1.1rem;
+    color: #0d47a1;
+    margin-bottom: 1rem;
+  }
+  
+  .events-list li:hover {
+    color: #1565c0; /* Change color on hover */
+    cursor: pointer;
+  }
+  
+  .events-container a {
+    color: #1e88e5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .events-container a:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+  }
+  
+  .events-container .btn {
+    background-color: #0d47a1; /* Dark blue for buttons */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 1.5rem;
+  }
+  
+  .events-container .btn:hover {
+    background-color: #1565c0; /* Slightly lighter blue on hover */
+  }
+  

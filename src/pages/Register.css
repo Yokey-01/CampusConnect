@@ -1,0 +1,131 @@
+/* src/pages/Register.css */
+
+.register-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: #333;
+  }
+  
+  .register-left {
+    flex: 1;
+    background: url('/assets/campus.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    color: #fff;
+    margin-bottom: 75px;
+  }
+  
+  .register-left h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .register-left p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .register-right {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+  }
+  
+  .register-form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .register-form h3 {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #4e54c8;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 80%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #4e54c8;
+    outline: none;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .checkbox-group label {
+    font-size: 0.9rem;
+  }
+  
+  .error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e54c8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #3b40a4;
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      flex-direction: column;
+    }
+  
+    .register-left,
+    .register-right {
+      flex: none;
+      width: 100%;
+      padding: 40px 20px;
+    }
+  
+    .register-left {
+      text-align: center;
+    }
+  }
+  
