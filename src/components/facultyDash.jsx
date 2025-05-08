@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './FacultyDashboard.css';
-import { useNavigate } from 'react-router-dom';
+import {
+  PieChart, Pie, Cell,
+  BarChart, Bar,
+  LineChart, Line,
+  XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend,
+  LabelList
+} from 'recharts';
 
 const FacultyDashboard = () => {
-  const navigate = useNavigate();
   const [announcements, setAnnouncements] = useState([]);
   const [announcementText, setAnnouncementText] = useState('');
   const [requests, setRequests] = useState([]);
@@ -15,83 +20,101 @@ const FacultyDashboard = () => {
   const [newCourse, setNewCourse] = useState({ name: '', description: '' });
 
   useEffect(() => {
-    fetch('/api/faculty/announcements').then(res => res.json()).then(setAnnouncements);
-    fetch('/api/faculty/requests').then(res => res.json()).then(setRequests);
-    fetch('/api/faculty/courses').then(res => res.json()).then(setCourses);
-    fetch('/api/faculty/reports').then(res => res.json()).then(setReports);
+    // Sample Data
+    const sampleAnnouncements = [
+      { date: '2025-05-01', text: 'Exam schedule released.' },
+      { date: '2025-04-28', text: 'Workshop on AI this Friday.' }
+    ];
+    const sampleRequests = [
+      { id: 1, name: 'Alice', request: 'Leave for 3 days', status: 'pending', date: '2025-05-06' },
+      { id: 2, name: 'Bob', request: 'Course extension', status: 'approved', date: '2025-05-05' },
+      { id: 2, name: 'Bob', request: 'Course extension', status: 'rejected', date: '2025-05-05' },
+      { id: 3, name: 'Charlie', request: 'Assignment recheck', status: 'rejected', date: '2025-05-04' }
+    ];
+    const sampleCourses = [
+      { id: 1, name: 'Math 101', description: 'Basic Mathematics' },
+      { id: 2, name: 'CS 102', description: 'Intro to Programming' },
+      { id: 2, name: 'AD 104', description: 'Machine Learning' },
+      { id: 2, name: 'CS 102', description: 'Intro to Programming' },
+      { id: 3, name: 'History 103', description: 'World History' }
+    ];
+    const sampleReports = {
+      totalRequests: sampleRequests.length,
+      activeUsers: 12
+    };
+
+    // Set state
+    setAnnouncements(sampleAnnouncements);
+    setRequests(sampleRequests);
+    setCourses(sampleCourses);
+    setReports(sampleReports);
   }, []);
 
+  // Chart Data
+  const requestStatusData = ['pending', 'approved', 'rejected'].map(status => ({
+    name: status,
+    value: requests.filter(req => req.status === status).length
+  }));
+
+  const courseBarData = courses.reduce((acc, course) => {
+    const key = course.name.toUpperCase();
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+  const barData = Object.entries(courseBarData).map(([letter, count]) => ({
+    name: letter,
+    Courses: count
+  }));
+
+  const lineData = Array.from({ length: 7 }, (_, i) => {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+    const label = date.toISOString().split('T')[0];
+    const count = requests.filter(r => new Date(r.date).toDateString() === date.toDateString()).length;
+    return { date: label, Requests: count };
+  }).reverse();
+
+  const COLORS = ['#8884d8', '#82ca9d', '#FF8042'];
+
+  // Handlers
   const handlePostAnnouncement = () => {
-    if (announcementText.trim()) {
-      fetch('/api/faculty/announcement', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: announcementText })
-      })
-        .then(res => res.json())
-        .then(data => {
-          setAnnouncements([...announcements, data]);
-          setAnnouncementText('');
-        });
-    }
+    if (!announcementText.trim()) return alert('Announcement cannot be empty.');
+    const newAnn = { date: new Date().toISOString().split('T')[0], text: announcementText };
+    setAnnouncements([...announcements, newAnn]);
+    setAnnouncementText('');
   };
 
   const updateRequestStatus = (id, status) => {
-    fetch(`/api/faculty/requests/${id}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status })
-    }).then(() => {
-      setRequests(requests.map(req => req.id === id ? { ...req, status } : req));
-    });
+    setRequests(prev => prev.map(req => req.id === id ? { ...req, status } : req));
   };
 
   const handleAddCourse = () => {
-    if (newCourse.name && newCourse.description) {
-      fetch('/api/faculty/courses', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newCourse)
-      })
-        .then(res => res.json())
-        .then(course => {
-          setCourses([...courses, course]);
-          setShowAddCourse(false);
-          setNewCourse({ name: '', description: '' });
-        });
-    }
+    const { name, description } = newCourse;
+    if (!name || !description) return alert('Please fill all fields.');
+    const newEntry = { id: Date.now(), ...newCourse };
+    setCourses([...courses, newEntry]);
+    setNewCourse({ name: '', description: '' });
+    setShowAddCourse(false);
   };
 
   const handleDeleteCourse = (id) => {
-    fetch(`/api/faculty/courses/${id}`, { method: 'DELETE' }).then(() => {
-      setCourses(courses.filter(course => course.id !== id));
-    });
+    setCourses(courses.filter(course => course.id !== id));
   };
 
   const handleUpdateCourse = (id) => {
-    fetch(`/api/faculty/courses/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: editingName })
-    }).then(() => {
-      setCourses(courses.map(course => course.id === id ? { ...course, name: editingName } : course));
-      setEditingId(null);
-      setEditingName('');
-    });
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('facultyToken');
-    navigate('/');
+    if (!editingName.trim()) return alert('Course name cannot be empty.');
+    setCourses(courses.map(c => c.id === id ? { ...c, name: editingName } : c));
+    setEditingId(null);
+    setEditingName('');
   };
 
   return (
     <div className="faculty-dashboard blue-theme">
       <header className="dashboard-header">
         <h1>Faculty Dashboard</h1>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </header>
 
+      {/* Announcements */}
       <section className="section announcements">
         <h2>Post Announcements</h2>
         <textarea
@@ -101,12 +124,13 @@ const FacultyDashboard = () => {
         />
         <button onClick={handlePostAnnouncement}>Post</button>
         <ul className="announcement-list">
-          {announcements.map((a, index) => (
-            <li key={index}><strong>{a.date}:</strong> {a.text}</li>
+          {announcements.map((a, i) => (
+            <li key={i}><strong>{a.date}:</strong> {a.text}</li>
           ))}
         </ul>
       </section>
 
+      {/* Requests */}
       <section className="section requests">
         <h2>Student Requests</h2>
         {requests.map(req => (
@@ -123,18 +147,63 @@ const FacultyDashboard = () => {
         ))}
       </section>
 
+      {/* Reports */}
       <section className="section reports">
         <h2>Reports</h2>
         <p>Total Requests: <strong>{reports.totalRequests}</strong></p>
         <p>Active Users: <strong>{reports.activeUsers}</strong></p>
+
+        <div className="charts-container">
+          <div className="chart-card">
+            <h3>Request Status Distribution</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie data={requestStatusData} dataKey="value" nameKey="name" outerRadius={80}>
+                  {requestStatusData.map((entry, index) => (
+                    <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                  <LabelList dataKey="name" position="outside" />
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="chart-card">
+            <h3>Courses by First Letter</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <BarChart data={barData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="Courses" fill="#82ca9d" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="chart-card">
+            <h3>Requests Over Last 7 Days</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <LineChart data={lineData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="Requests" stroke="#8884d8" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       </section>
 
+      {/* Courses */}
       <section className="section courses">
         <h2>Manage Courses</h2>
-        <button
-          className="toggle-add"
-          onClick={() => setShowAddCourse(!showAddCourse)}
-        >
+        <button className="toggle-add" onClick={() => setShowAddCourse(!showAddCourse)}>
           {showAddCourse ? 'Cancel' : 'Add Course'}
         </button>
 
@@ -165,6 +234,7 @@ const FacultyDashboard = () => {
                     onChange={(e) => setEditingName(e.target.value)}
                   />
                   <button className="save" onClick={() => handleUpdateCourse(course.id)}>Save</button>
+                  <button className="cancel" onClick={() => setEditingId(null)}>Cancel</button>
                 </>
               ) : (
                 <>

@@ -4,13 +4,13 @@
     display: flex;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    background: linear-gradient(135deg, #5056d2, #3b45fb);
     color: #333;
   }
   
   .login-left {
     flex: 1;
-    background: url('/assets/login-background.jpg') no-repeat center center;
+    /* background: url('/assets/login-background.jpg') no-repeat center center; */
     background-size: cover;
     display: flex;
     flex-direction: column;

@@ -2,10 +2,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css'; // Ensure this CSS file exists and is correctly linked
-import Header from '../components/Header';
+// import Header from '../components/StuHeader';
 import Footer from '../components/Footer';
+import StuHeader from '../components/StuHeader';
 
-const Home = () => {
+const SHome = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -14,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Header/> 
+      <StuHeader/> 
       <header className="home-hero">
         <h1>Welcome to CampusConnect</h1>
         <p>Your gateway to campus collaboration and innovation.</p>
@@ -25,15 +26,15 @@ const Home = () => {
       </header>
 
       <section className="home-features">
-        <div className="feature-card">
+        <div className="feature-card" onClick={() => navigate('/community')}>
           <h3>Community</h3>
           <p>Connect with peers and faculty across departments.</p>
         </div>
-        <div className="feature-card">
+        <div className="feature-card" onClick={() => navigate('/events')}>
           <h3>Events</h3>
           <p>Stay updated with campus events and workshops.</p>
         </div>
-        <div className="feature-card">
+        <div className="feature-card" onClick={() => navigate('/resources')}>
           <h3>Resources</h3>
           <p>Access study materials and collaborative tools.</p>
         </div>
@@ -44,4 +45,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SHome;

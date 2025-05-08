@@ -1,7 +1,7 @@
 // src/pages/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // Ensure this CSS file exists and is correctly linked
+import './Login.css'; // Ensure your custom CSS is here
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +11,7 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [domainError, setDomainError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +19,7 @@ const Login = () => {
       ...prevData,
       [name]: value,
     }));
+    setDomainError(''); // Clear domain error on input change
   };
 
   const validate = () => {
@@ -31,10 +33,15 @@ const Login = () => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      // Proceed with form submission (e.g., API call)
-      console.log('Form submitted:', formData);
-      // Redirect to dashboard or home page after successful login
-      navigate('/home');
+      const email = formData.email.toLowerCase();
+
+      if (email.endsWith('@gmail.com')) {
+        navigate('/stuhome');
+      } else if (email.endsWith('@kce.ac.in')) {
+        navigate('/fachome');
+      } else {
+        setDomainError('Only @gmail.com (student) or @kce.ac.in (faculty) emails are allowed.');
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -46,9 +53,11 @@ const Login = () => {
         <h2>Welcome Back!</h2>
         <p>Enter your credentials to access your account.</p>
       </div>
+
       <div className="login-right">
         <form className="login-form" onSubmit={handleSubmit}>
           <h3>Sign In</h3>
+
           <div className="form-group">
             <label>Email Address</label>
             <input
@@ -60,6 +69,7 @@ const Login = () => {
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
+
           <div className="form-group">
             <label>Password</label>
             <input
@@ -71,8 +81,13 @@ const Login = () => {
             />
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
+
+          {domainError && <p className="error">{domainError}</p>}
+
           <button type="submit" className="btn primary">Login</button>
-          <p className="register-link">Don't have an account? <span onClick={() => navigate('/register')}>Register here</span>
+
+          <p className="register-link">
+            Don't have an account? <span onClick={() => navigate('/register')}>Register here</span>
           </p>
         </form>
       </div>

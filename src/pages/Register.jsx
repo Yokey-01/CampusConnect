@@ -36,16 +36,16 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length === 0) {
-      // Proceed with form submission (e.g., API call)
-      console.log('Form submitted:', formData);
+    // e.preventDefault();
+    // const validationErrors = validate();
+    // if (Object.keys(validationErrors).length === 0) {
+    //   // Proceed with form submission (e.g., API call)
+    //   console.log('Form submitted:', formData);
       // Redirect to login page after successful registration
       navigate('/login');
-    } else {
-      setErrors(validationErrors);
-    }
+    // } else {
+    //   setErrors(validationErrors);
+    // }
   };
 
   return (
