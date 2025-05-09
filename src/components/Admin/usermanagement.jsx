@@ -4,13 +4,13 @@ const getInitials = (name) => name.split(' ').map(n => n[0]).join('');
 
 export default function UserManagement() {
   const [students, setStudents] = useState([
-    { id: 1, name: 'Alice Thomas', email: 'alice@student.edu', course: 'B.Tech CSE', joined: '2024-07-10', status: 'Active' },
-    { id: 2, name: 'Bob Kevin', email: 'bob@student.edu', course: 'B.Sc IT', joined: '2023-11-05', status: 'Inactive' },
+    { id: 1, name: 'Virat', email: 'Virat@student.edu', course: 'B.Tech CSE', joined: '2024-07-10', status: 'Active' },
+    { id: 2, name: 'Kohli', email: 'Kohli@student.edu', course: 'B.Sc IT', joined: '2023-11-05', status: 'Inactive' },
   ]);
 
   const [faculty, setFaculty] = useState([
     { id: 1, name: 'Dr. Kavitha R.', email: 'kavitha@faculty.edu', dept: 'Computer Science', designation: 'Professor', joined: '2022-03-20', status: 'Active' },
-    { id: 2, name: 'Mr. Saravanan M.', email: 'saravanan@faculty.edu', dept: 'Mathematics', designation: 'Asst. Professor', joined: '2021-08-15', status: 'Active' },
+    { id: 2, name: 'Mr. Arul Antran Vijay', email: 'arulantran@faculty.edu', dept: 'Mathematics', designation: 'Asst. Professor', joined: '2021-08-15', status: 'Active' },
   ]);
 
   const deleteStudent = (id) => setStudents(students.filter(s => s.id !== id));
@@ -39,7 +39,7 @@ export default function UserManagement() {
                 <tr key={s.id} className="border-t border-gray-200 hover:bg-gray-100">
                   <td className="p-4 flex items-center space-x-3">
                     <div className="bg-blue-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold">
-                      {getInitials(s.name)}
+                      {/* {getInitials(s.name)} */}
                     </div>
                     <span>{s.name}</span>
                   </td>
@@ -94,7 +94,7 @@ export default function UserManagement() {
                 <tr key={f.id} className="border-t border-gray-200 hover:bg-gray-100">
                   <td className="p-4 flex items-center space-x-3">
                     <div className="bg-indigo-700 text-white w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold">
-                      {getInitials(f.name)}
+                      {/* {getInitials(f.name)} */}
                     </div>
                     <span>{f.name}</span>
                   </td>

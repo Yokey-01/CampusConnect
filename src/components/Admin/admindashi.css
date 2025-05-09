@@ -1,5 +1,9 @@
 body {
   background-color: #fffdfd; /* Full white page background */
+  font-family: 'Segoe UI', sans-serif;
+  color: #1f4dcd; /* Dark blue text */
+  margin: 0;
+  padding: 0;
 }
 
 .dashboard-container {
@@ -8,6 +12,9 @@ body {
   margin: auto;
 }
 
+/* h1, h2 {
+  color: #e9ebf3;
+} */
 
 .stats-card {
   background-color: #e3f2fd; /* Light blue background */

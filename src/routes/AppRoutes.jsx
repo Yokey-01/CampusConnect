@@ -13,9 +13,12 @@ import BasicHome from '../pages/basichome';
 import FacHome from '../pages/FacHomePage';
 import FacProfilePage from '../components/facProfilePage';
 import RequestResources from '../components/RequestResources';
-import Admin from '../components/admindash';
+import Admin from '../components/Admin/admindash';
 import UserManagement from '../components/Admin/usermanagement';
 import AdminDashboard from '../components/Admin/dashboard';
+import ViewRequests from '../components/Admin/ViewRequests';
+import Announcements from '../components/Admin/Announcements';
+import AdminCourses from '../components/Admin/Coursemanage';
 
 const AppRoutes = () => (
   <BrowserRouter>
@@ -36,6 +39,9 @@ const AppRoutes = () => (
       <Route path="/admin" element={<Admin />} />
       <Route path="/admin/usermanagement" element={<UserManagement />} />
       <Route path="/admin/dashboard" element={<AdminDashboard/>} />
+      <Route path="/admin/viewrequest" element={<ViewRequests/>} />
+      <Route path="/admin/announcements" element={<Announcements/>} />
+      <Route path="/admin/coursemanagement" element={<AdminCourses/>} />
 
       <Route path="/request-resources" element={<RequestResources />} />
 

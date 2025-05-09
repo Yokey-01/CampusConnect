@@ -21,13 +21,13 @@ const COLORS = ['#1e40af', '#3b82f6', '#60a5fa'];
 
 export default function AdminDashboard() {
   const [users, setUsers] = useState([
-    { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Student', lastLogin: '2025-05-08' },
-    { id: 2, name: 'Bob Williams', email: 'bob@example.com', role: 'Faculty', lastLogin: '2025-05-07' },
+    { id: 1, name: 'Virat', email: 'Virat@gmail.com', role: 'Student', lastLogin: '2025-05-08' },
+    { id: 2, name: 'Kohli', email: 'Kohli@gmail.com', role: 'Faculty', lastLogin: '2025-05-07' },
   ]);
 
   const [requests, setRequests] = useState([
-    { id: 1, name: 'Alice Johnson', type: 'Library Access', status: 'Pending' },
-    { id: 2, name: 'Bob Williams', type: 'Resource Upload', status: 'Approved' },
+    { id: 1, name: 'KL Rahul', type: 'Library Access', status: 'Pending' },
+    { id: 2, name: 'Shreyas', type: 'Resource Upload', status: 'Approved' },
   ]);
 
   const deleteUser = (id) => setUsers(users.filter(user => user.id !== id));

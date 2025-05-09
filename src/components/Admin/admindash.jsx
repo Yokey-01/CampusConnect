@@ -25,9 +25,9 @@ const Admin = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem' }}>
           {[
             { label: 'Manage Users', path: '/admin/usermanagement', color: '#3b82f6' },
-            { label: 'View Requests', path: '/admin/requests', color: '#10b981' },
+            { label: 'View Requests', path: '/admin/viewrequest', color: '#10b981' },
             { label: 'Announcements', path: '/admin/announcements', color: '#6366f1' },
-            { label: 'Course Management', path: '/admin/courses', color: '#f97316' },
+            { label: 'Course Management', path: '/admin/coursemanagement', color: '#f97316' },
             { label: 'Dashboard Analytics', path: '/admin/dashboard', color: '#14b8a6' },
             { label: 'Logout', path: '/', color: '#ef4444' },
           ].map((item, i) => (

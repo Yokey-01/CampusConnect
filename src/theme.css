@@ -1,8 +1,8 @@
 :root {
   --primary-color: #2a2d43;
   --accent-color: #fbc531;
-  --bg-color: #1e1f2b;
-  --text-color: #e0e0e0;
+  /* --bg-color: #1e1f2b; */
+  --text-color: #5263d1;
   --card-bg: #2b2e4a;
   --border-radius: 12px;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
