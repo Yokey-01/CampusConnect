@@ -24,7 +24,10 @@ export default function UserManagement() {
       
       {/* STUDENTS TABLE */}
       <div>
-        <h2 className="text-2xl font-semibold text-blue-900 mb-4">Student Accounts</h2>
+        <h2 className="text-2xl font-semibold text-blue-900 mb-4" style={{
+          marginLeft:'20px'
+        }}>
+          Student Accounts</h2>
         <div className="overflow-x-auto bg-white rounded-lg shadow border border-blue-200">
           <table className="w-full text-left border-collapse">
             <thead className="bg-blue-800 text-white">
@@ -78,7 +81,9 @@ export default function UserManagement() {
 
       {/* FACULTY TABLE */}
       <div>
-        <h2 className="text-2xl font-semibold text-blue-900 mb-4">Faculty Accounts</h2>
+        <h2 className="text-2xl font-semibold text-blue-900 mb-4" style={{
+          marginLeft:'20px'
+        }}>Faculty Accounts</h2>
         <div className="overflow-x-auto bg-white rounded-lg shadow border border-blue-200">
           <table className="w-full text-left border-collapse">
             <thead className="bg-blue-800 text-white">

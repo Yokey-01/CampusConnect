@@ -39,15 +39,15 @@ export default function AdminDashboard() {
   return (
     <>
     <AdminHeader/>
-    <div className="min-h-screen bg-white text-gray-800 font-['Segoe_UI']">
+    <div className="min-h-screen bg-white text-gray-800 font-['Segoe_UI']" style={{
+          marginLeft:'20px',
+        }}>
       <motion.div
         className="max-w-7xl mx-auto px-6 py-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-3xl font-bold text-blue-900 mb-8">Admin Dashboard</h1>
-
         {/* Statistics Cards */}
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           {[{ label: 'Total Users', value: 1180 }, { label: 'Courses', value: 45 }, { label: 'Pending Requests', value: 18 }, { label: 'Announcements', value: 12 }].map(stat => (
@@ -61,7 +61,9 @@ export default function AdminDashboard() {
         {/* Charts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-blue-50 p-6 rounded-xl shadow">
-            <h2 className="text-blue-900 text-lg font-semibold mb-4">User Roles</h2>
+            <h2 className="text-blue-900 text-lg font-semibold mb-4" style={{
+          color:'#171849'
+        }}>User Roles</h2>
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie data={userStats} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
@@ -75,7 +77,9 @@ export default function AdminDashboard() {
           </div>
 
           <div className="bg-blue-50 p-6 rounded-xl shadow">
-            <h2 className="text-blue-900 text-lg font-semibold mb-4">Request Status</h2>
+            <h2 className="text-blue-900 text-lg font-semibold mb-4" style={{
+          color:'#171849'
+        }}>Request Status</h2>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={requestStats}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -91,7 +95,9 @@ export default function AdminDashboard() {
 
         {/* User Management */}
         <div className="bg-white rounded-xl shadow p-6 mb-12">
-          <h2 className="text-xl font-semibold text-blue-800 mb-4">User Management</h2>
+          <h2 className="text-xl font-semibold text-blue-800 mb-4" style={{
+          color:'#171849'
+        }}>User Management</h2>
           <div className="overflow-x-auto">
             <table className="w-full table-auto border">
               <thead className="bg-blue-800 text-white">
@@ -124,7 +130,9 @@ export default function AdminDashboard() {
 
         {/* Request Management */}
         <div className="bg-white rounded-xl shadow p-6">
-          <h2 className="text-xl font-semibold text-blue-800 mb-4">Request Management</h2>
+          <h2 className="text-xl font-semibold text-blue-800 mb-4" style={{
+          color:'#171849'
+        }}>Request Management</h2>
           <div className="overflow-x-auto">
             <table className="w-full table-auto border">
               <thead className="bg-blue-800 text-white">

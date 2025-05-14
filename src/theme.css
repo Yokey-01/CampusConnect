@@ -147,3 +147,16 @@ input:focus, select:focus, textarea:focus {
 .dashboard-container {
   padding-top: 1.5rem;
 }
+
+.dashboard-nav .nav-link {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.dashboard-nav .nav-link:hover,
+.dashboard-nav .nav-link.active {
+  color: rgb(51, 57, 231);
+}

@@ -41,8 +41,10 @@ const Login = () => {
         navigate('/stuhome');
       } else if (email.endsWith('@kce.ac.in')) {
         navigate('/fachome');
+      }else if (email.endsWith('@admin.in')) {
+        navigate('/admin');
       } else {
-        setDomainError('Only @gmail.com (student) or @kce.ac.in (faculty) emails are allowed.');
+        setDomainError('Only @gmail.com (student) or @kce.ac.in (faculty) @admin.in (admin) emails are allowed.');
       }
     } else {
       setErrors(validationErrors);

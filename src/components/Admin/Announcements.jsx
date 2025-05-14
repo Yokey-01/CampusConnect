@@ -24,6 +24,8 @@ export default function AdminAnnouncements() {
     setAnnouncements(announcements.filter(ann => ann.id !== id));
   };
 
+  const handleBack = () => navigate(-1); // Go to previous page
+
   return (
     <>
       <AdminHeader/>

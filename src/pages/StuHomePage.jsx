@@ -17,7 +17,7 @@ const SHome = () => {
     <div className="home-container">
       <StuHeader/> 
       <header className="home-hero">
-        <h1>Welcome to CampusConnect</h1>
+        <h1>Welcome to Campus Connect</h1>
         <p>Your gateway to campus collaboration and innovation.</p>
         <div className="home-actions">
           {/* <button onClick={handleGetStarted} className="btn primary">Get Started</button> */}

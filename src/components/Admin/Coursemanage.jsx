@@ -34,7 +34,9 @@ export default function AdminCourses() {
     <>
     <AdminHeader/>
     <div className="bg-white p-6 rounded-xl shadow mt-6" >
-      <h2 className="text-xl font-semibold text-blue-800 mb-4">Course Management</h2>
+      <h2 className="text-xl font-semibold text-blue-800 mb-4" style={{
+          marginLeft:'20px'
+        }}>Course Management</h2>
 
       {/* Add/Edit Form */}
       <div className="mb-6" style={{

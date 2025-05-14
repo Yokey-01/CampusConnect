@@ -12,7 +12,7 @@ const BasicHome = () => {
       <BasicHeader />
 
       <header className="home-hero">
-        <h1>Welcome to CampusConnect</h1>
+        <h1>Welcome to Campus Connect</h1>
         <p>Your gateway to campus collaboration and innovation.</p>
         <div className="home-actions">
           {/* <button onClick={() => navigate('/register')} className="btn primary">Get Started</button> */}

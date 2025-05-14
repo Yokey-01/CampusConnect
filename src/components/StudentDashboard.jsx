@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnnouncementBoard from './AnnouncementBoard';
 import RequestsList from './RequestsList';
-import StuHeader from './StuHeader';
+import StuHeader, { StudashHeader } from './StuHeader';
 
 const StudentDashboard = () => {
   const student = {
@@ -32,7 +32,7 @@ const StudentDashboard = () => {
   return (
     <div style={{ padding: '2rem', backgroundColor: '#f5f9ff', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
-        <StuHeader/>  
+        <StudashHeader/>  
         {/* Header Section */}
         <div
           style={{
@@ -165,7 +165,7 @@ const StudentDashboard = () => {
           <button
             onClick={() => handleEnroll(course)}
             style={{
-              backgroundColor: '#0ea5e9',
+              backgroundColor: '#1e3a8a',
               color: 'white',
               padding: '0.4rem 1rem',
               borderRadius: '6px',
