@@ -355,7 +355,7 @@ const FacultyDashboard = () => {
                 placeholder="Course Description"
                 value={newCourse.description}
                 onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })}
-              />
+              /><br></br>
               <button onClick={handleAddCourse}>Add Course</button>
             </div>
           )}
