@@ -4,6 +4,7 @@ body {
   color: #1f4dcd; /* Dark blue text */
   margin: 0;
   padding: 0;
+  
 }
 
 .dashboard-container {
@@ -37,12 +38,14 @@ body {
 }
 
 table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
-  background-color: rgb(85, 80, 80);
+  background-color: rgb(238, 232, 232);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 thead {

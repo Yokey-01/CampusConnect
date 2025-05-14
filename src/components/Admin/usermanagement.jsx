@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AdminHeader from './adminheader';
 
 const getInitials = (name) => name.split(' ').map(n => n[0]).join('');
 
@@ -17,6 +18,8 @@ export default function UserManagement() {
   const deleteFaculty = (id) => setFaculty(faculty.filter(f => f.id !== id));
 
   return (
+    <>
+    <AdminHeader/>
     <div className="p-6 space-y-12 bg-gray-50 min-h-screen">
       
       {/* STUDENTS TABLE */}
@@ -129,5 +132,6 @@ export default function UserManagement() {
         </div>
       </div>
     </div>
+    </>
   );
 }

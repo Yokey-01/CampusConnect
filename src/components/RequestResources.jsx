@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FacHeader from './FacHeader';
+import StuHeader from './StuHeader';
+import { useEffect } from 'react';
+
 
 const RequestResources = () => {
   const navigate = useNavigate();
@@ -8,6 +12,12 @@ const RequestResources = () => {
     resourceType: '',
     description: '',
   });
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,17 +32,20 @@ const RequestResources = () => {
   };
 
   return (
+    <>
+    <StuHeader/>
+    
     <div
       style={{
-        padding: '2rem',
-        background: 'linear-gradient(45deg, #6b73ff,rgb(49, 56, 175))',
-        backgroundSize: '400% 400%',
-        animation: 'gradientBG 15s ease infinite',
-        minHeight: '50vh',
-        fontFamily: 'Segoe UI, sans-serif',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+          padding: '2rem',
+          background: 'linear-gradient(45deg, #6b73ff,rgb(49, 56, 175))',
+          backgroundSize: '400% 400%',
+          animation: 'gradientBG 15s ease infinite',
+          minHeight: '50vh',
+          fontFamily: 'Segoe UI, sans-serif',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
       }}
     >
       <div
@@ -121,6 +134,7 @@ const RequestResources = () => {
         </form>
       </div>
     </div>
+  </>
   );
 };
 

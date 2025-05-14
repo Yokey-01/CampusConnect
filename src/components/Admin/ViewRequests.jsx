@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AdminHeader from './adminheader';
 
 export default function ViewRequests() {
   const [requests, setRequests] = useState([
@@ -14,6 +15,8 @@ export default function ViewRequests() {
   };
 
   return (
+    <>
+    <AdminHeader/>
     <div className="section">
       <h2 className="text-xl font-semibold text-blue-800 mb-4">Student Requests</h2>
       <div className="overflow-x-auto">
@@ -36,12 +39,21 @@ export default function ViewRequests() {
                   <button
                     onClick={() => handleStatusChange(req.id, 'Approved')}
                     className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 mr-2"
+                    style={{
+                  width:'80px',
+                  borderRadius:'10px',
+                  
+                }}
                   >
                     Approve
                   </button>
                   <button
                     onClick={() => handleStatusChange(req.id, 'Rejected')}
                     className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    style={{
+                  width:'80px',
+                  borderRadius:'10px'
+                }}
                   >
                     Reject
                   </button>
@@ -52,5 +64,6 @@ export default function ViewRequests() {
         </table>
       </div>
     </div>
+    </>
   );
 }

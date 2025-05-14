@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnnouncementBoard from './AnnouncementBoard';
 import RequestsList from './RequestsList';
+import StuHeader from './StuHeader';
 
 const StudentDashboard = () => {
   const student = {
@@ -31,6 +32,7 @@ const StudentDashboard = () => {
   return (
     <div style={{ padding: '2rem', backgroundColor: '#f5f9ff', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
+        <StuHeader/>  
         {/* Header Section */}
         <div
           style={{

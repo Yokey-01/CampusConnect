@@ -6,6 +6,7 @@ import {
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './ProfilePage.css';
+import FacHeader from './FacHeader';
 
 const FacProfilePage = () => {
   const navigate = useNavigate();
@@ -69,6 +70,8 @@ const FacProfilePage = () => {
   };
 
   return (
+    <>
+    <FacHeader/>
     <div className="profile-container">
       <motion.div
         className="profile-card"
@@ -161,6 +164,7 @@ const FacProfilePage = () => {
         </form>
       </motion.div>
     </div>
+    </>
   );
 };
 

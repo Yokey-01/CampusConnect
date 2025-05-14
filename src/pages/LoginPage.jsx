@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; // Ensure your custom CSS is here
+import BasicHeader from '../components/bsicheder';
+import Footer from '../components/Footer';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -48,6 +50,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <BasicHeader/>
     <div className="login-container">
       <div className="login-left">
         <h2>Welcome Back!</h2>
@@ -92,6 +96,8 @@ const Login = () => {
         </form>
       </div>
     </div>
+    {/* <Footer/> */}
+    </>
   );
 };
 

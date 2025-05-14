@@ -7,6 +7,7 @@ import {
   XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend,
   LabelList
 } from 'recharts';
+import FacdashHeader from './FacHeader';
 
 const FacultyDashboard = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -110,7 +111,9 @@ const FacultyDashboard = () => {
 
   return (
     <div className="faculty-dashboard blue-theme">
+      <FacdashHeader/>
       <header className="dashboard-header">
+      
         <h1>Faculty Dashboard</h1>
       </header>
 
@@ -184,7 +187,7 @@ const FacultyDashboard = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="chart-card">
+          {/* <div className="chart-card">
             <h3>Requests Over Last 7 Days</h3>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={lineData}>
@@ -196,7 +199,7 @@ const FacultyDashboard = () => {
                 <Line type="monotone" dataKey="Requests" stroke="#8884d8" />
               </LineChart>
             </ResponsiveContainer>
-          </div>
+          </div> */}
         </div>
       </section>
 

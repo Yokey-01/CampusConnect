@@ -5,6 +5,7 @@ import {
   FaTransgender, FaIdBadge, FaEnvelope
 } from 'react-icons/fa';
 import './ProfilePage.css';
+import StuHeader from './StuHeader';
 
 const StuProfilePage = () => {
   const navigate = useNavigate();
@@ -69,6 +70,8 @@ const StuProfilePage = () => {
   };
 
   return (
+    <>
+    <StuHeader/>
     <div className="profile-container">
       <div className="profile-card">
         <h2 className="profile-title">Profile</h2>
@@ -143,6 +146,7 @@ const StuProfilePage = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

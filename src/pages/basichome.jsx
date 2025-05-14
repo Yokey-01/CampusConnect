@@ -15,8 +15,8 @@ const BasicHome = () => {
         <h1>Welcome to CampusConnect</h1>
         <p>Your gateway to campus collaboration and innovation.</p>
         <div className="home-actions">
-          <button onClick={() => navigate('/register')} className="btn primary">Get Started</button>
-          <button onClick={() => navigate('/login')} className="btn secondary">Login</button>
+          {/* <button onClick={() => navigate('/register')} className="btn primary">Get Started</button> */}
+          {/* <button onClick={() => navigate('/login')} className="btn secondary">Login</button> */}
         </div>
       </header>
 

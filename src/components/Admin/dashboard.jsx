@@ -5,6 +5,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend
 } from 'recharts';
 import './admindashi.css';
+import AdminHeader from './adminheader';
 
 const userStats = [
   { name: 'Students', value: 820 },
@@ -36,6 +37,8 @@ export default function AdminDashboard() {
   };
 
   return (
+    <>
+    <AdminHeader/>
     <div className="min-h-screen bg-white text-gray-800 font-['Segoe_UI']">
       <motion.div
         className="max-w-7xl mx-auto px-6 py-8"
@@ -46,14 +49,14 @@ export default function AdminDashboard() {
         <h1 className="text-3xl font-bold text-blue-900 mb-8">Admin Dashboard</h1>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           {[{ label: 'Total Users', value: 1180 }, { label: 'Courses', value: 45 }, { label: 'Pending Requests', value: 18 }, { label: 'Announcements', value: 12 }].map(stat => (
             <div key={stat.label} className="bg-blue-100 text-blue-900 p-6 rounded-xl shadow hover:shadow-lg transition">
               <p className="text-2xl font-bold">{stat.value}</p>
               <p className="text-sm">{stat.label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Charts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -154,5 +157,6 @@ export default function AdminDashboard() {
         </div>
       </motion.div>
     </div>
+    </>
   );
 }

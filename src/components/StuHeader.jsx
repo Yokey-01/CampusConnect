@@ -9,6 +9,9 @@ const StuHeader = () => (
     justifyContent: 'space-between',
     alignItems: 'center',
     color: 'white',
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
   }}>
     <h1>Campus Connect</h1>
     <nav style={{ display: 'flex', gap: '1rem' }}>

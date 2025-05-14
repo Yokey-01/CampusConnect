@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AdminHeader from './adminheader';
 
 export default function AdminCourses() {
   const [courses, setCourses] = useState([
@@ -30,11 +31,19 @@ export default function AdminCourses() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow mt-6">
+    <>
+    <AdminHeader/>
+    <div className="bg-white p-6 rounded-xl shadow mt-6" >
       <h2 className="text-xl font-semibold text-blue-800 mb-4">Course Management</h2>
 
       {/* Add/Edit Form */}
-      <div className="mb-6">
+      <div className="mb-6" style={{
+        width:'40%',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        marginLeft:'30px'
+      }}>
         <input
           type="text"
           placeholder="Course Title"
@@ -84,12 +93,20 @@ export default function AdminCourses() {
                   setNewCourse({ title: course.title, description: course.description });
                 }}
                 className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                style={{
+                  width:'80px',
+                  borderRadius:'30px'
+                }}
               >
-                Edit
+                Edit   
               </button>
               <button
                 onClick={() => handleDelete(course.id)}
                 className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                style={{
+                  width:'80px',
+                  borderRadius:'30px'
+                }}
               >
                 Delete
               </button>
@@ -98,5 +115,6 @@ export default function AdminCourses() {
         ))}
       </ul>
     </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import StuHeader from './StuHeader';
 
 const RequestForm = () => {
   const navigate = useNavigate();
@@ -28,6 +29,8 @@ const RequestForm = () => {
   };
 
   return (
+    <>
+    <StuHeader/>
     <div
       style={{
         background: 'linear-gradient(to bottom right, #6b73ff,rgb(28, 37, 209))',
@@ -51,6 +54,7 @@ const RequestForm = () => {
           padding: '2.5rem',
           backdropFilter: 'blur(12px)',
           animation: 'fadeIn 1.5s ease-out',
+          height:'110vh'
         }}
       >
         <h2
@@ -142,6 +146,7 @@ const RequestForm = () => {
         </form>
       </div>
     </div>
+  </>
   );
 };
 
